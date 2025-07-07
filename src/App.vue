@@ -53,6 +53,7 @@
           <div><b>House Price: </b>£{{ formatNumber(save.house_price) }}</div>
           <div><b>Deposit:</b> £{{ formatNumber(save.deposit) }}</div>
           <div><b>Repayment Years:</b> {{ save.repayment_years }}</div>
+          <div><b>Monthly Payment:</b> £{{ formatNumber(save.monthly_payment) }}</div>
           <div><b>Interest Rate:</b> {{ save.interest_rate }}</div>
         </button>
         <div class="error" v-if="saves.length == 0">No calculations saved</div>
@@ -154,7 +155,8 @@ export default {
         house_price: this.house_price,
         deposit: this.deposit,
         interest_rate: this.interest_rate,
-        repayment_years: this.repayment_years
+        repayment_years: this.repayment_years,
+        monthly_payment: this.monthly_payment
       })
     },
     loadSave(save) {
@@ -440,6 +442,7 @@ button:hover {
     width: calc(100% - 20px);
     margin: 0 auto;
     height: auto;
+    padding-bottom: 50px;
   }
 
   .input,
@@ -449,6 +452,10 @@ button:hover {
 
   .io {
     gap: 20px;
+  }
+
+  .save-holder {
+    max-width: none;
   }
 }
 </style>
